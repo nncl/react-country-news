@@ -25475,7 +25475,7 @@ process.umask = function() { return 0; };
 },{}],243:[function(require,module,exports){
 /**
  * @description
- * Not realy a component, more a routes manager
+ * It's not really a component, it's more like a route manager
  */
 
 var React = require('react'),
@@ -25485,8 +25485,8 @@ Router = ReactRouter.Router,
     Route = ReactRouter.Route,
     // For a specific page
 Base = require('./components/Base.jsx'),
-    Page1 = require('./components/Page1.jsx'),
-    Page2 = require('./components/Page2.jsx'),
+    News = require('./components/News.jsx'),
+    Photos = require('./components/Photos.jsx'),
     CreateHistory = require('history'),
     History = new CreateHistory.createHashHistory();
 
@@ -25497,14 +25497,14 @@ var Routes = React.createElement(
     React.createElement(
         Route,
         { path: '/', component: Base },
-        React.createElement(Route, { path: '/page1', component: Page1 }),
-        React.createElement(Route, { path: '/page2', component: Page2 })
+        React.createElement(Route, { path: '/news', component: News }),
+        React.createElement(Route, { path: '/photos', component: Photos })
     )
 );
 
 module.exports = Routes;
 
-},{"./components/Base.jsx":244,"./components/Page1.jsx":245,"./components/Page2.jsx":246,"history":15,"react":241,"react-router":202}],244:[function(require,module,exports){
+},{"./components/Base.jsx":244,"./components/News.jsx":245,"./components/Photos.jsx":246,"history":15,"react":241,"react-router":202}],244:[function(require,module,exports){
 /**
  * @description
  * It's kind the container, main file/code; basically anything you want to
@@ -25521,6 +25521,20 @@ var React = require('react'),
             'section',
             null,
             React.createElement(
+                'header',
+                null,
+                React.createElement(
+                    'h1',
+                    null,
+                    'Country News'
+                ),
+                React.createElement(
+                    'h2',
+                    null,
+                    'Top stories in my country'
+                )
+            ),
+            React.createElement(
                 'nav',
                 null,
                 React.createElement(
@@ -25533,8 +25547,8 @@ var React = require('react'),
                             Link,
                             {
                                 activeClassName: 'm-link--active',
-                                to: '/page1' },
-                            'Page 1'
+                                to: '/news' },
+                            'News'
                         )
                     ),
                     React.createElement(
@@ -25544,8 +25558,8 @@ var React = require('react'),
                             Link,
                             {
                                 activeClassName: 'm-link--active',
-                                to: '/page2' },
-                            'Page 2'
+                                to: '/photos' },
+                            'Photos'
                         )
                     )
                 )
@@ -25568,8 +25582,8 @@ module.exports = Base;
 
 },{"react":241,"react-router":202}],245:[function(require,module,exports){
 var React = require('react'),
-    Page1 = React.createClass({
-    displayName: 'Page1',
+    News = React.createClass({
+    displayName: 'News',
 
     render: function () {
         return React.createElement(
@@ -25578,18 +25592,18 @@ var React = require('react'),
             React.createElement(
                 'h1',
                 null,
-                'Page 1'
+                'News'
             )
         );
     }
 });
 
-module.exports = Page1;
+module.exports = News;
 
 },{"react":241}],246:[function(require,module,exports){
 var React = require('react'),
-    Page2 = React.createClass({
-    displayName: 'Page2',
+    Photos = React.createClass({
+    displayName: 'Photos',
 
     render: function () {
         return React.createElement(
@@ -25598,13 +25612,13 @@ var React = require('react'),
             React.createElement(
                 'h1',
                 null,
-                'Page 2'
+                'Photos'
             )
         );
     }
 });
 
-module.exports = Page2;
+module.exports = Photos;
 
 },{"react":241}],247:[function(require,module,exports){
 var React = require('react'),

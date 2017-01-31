@@ -10,17 +10,22 @@ var React = require('react')
     render: function () {
         return (
             <section>
+                <header>
+                    <h1>Country News</h1>
+                    <h2>Top stories in my country</h2>
+                </header>
+
                 <nav>
                     <ul>
                         <li>
                             <Link
                                 activeClassName="m-link--active"
-                                to="/page1">Page 1</Link>
+                                to="/news">News</Link>
                         </li>
                         <li>
                             <Link
                                 activeClassName="m-link--active"
-                                to="/page2">Page 2</Link>
+                                to="/photos">Photos</Link>
                         </li>
                     </ul>
                 </nav>

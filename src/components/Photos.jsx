@@ -1,12 +1,12 @@
 var React = require('react')
-    , Page2 = React.createClass({
+    , Photos = React.createClass({
     render: function() {
         return (
             <div>
-                <h1>Page 2</h1>
+                <h1>Photos</h1>
             </div>
         )
     }
 });
 
-module.exports = Page2;
+module.exports = Photos;

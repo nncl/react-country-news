@@ -1,6 +1,6 @@
 /**
  * @description
- * Not realy a component, more a routes manager
+ * It's not really a component, it's more like a route manager
  */
 
 var React = require('react'),
@@ -8,8 +8,8 @@ var React = require('react'),
     Router = ReactRouter.Router,
     Route = ReactRouter.Route, // For a specific page
     Base = require('./components/Base.jsx'),
-    Page1 = require('./components/Page1.jsx'),
-    Page2 = require('./components/Page2.jsx'),
+    News = require('./components/News.jsx'),
+    Photos = require('./components/Photos.jsx'),
     CreateHistory = require('history'),
     History = new CreateHistory.createHashHistory();
 
@@ -17,8 +17,8 @@ var React = require('react'),
 var Routes = (
     <Router history={History}>
         <Route path="/" component={Base}>
-            <Route path="/page1" component={Page1}/>
-            <Route path="/page2" component={Page2}/>
+            <Route path="/news" component={News}/>
+            <Route path="/photos" component={Photos}/>
         </Route>
     </Router>
 );
