@@ -25504,7 +25504,7 @@ var Routes = React.createElement(
 
 module.exports = Routes;
 
-},{"./components/Base.jsx":244,"./components/News.jsx":245,"./components/Photos.jsx":246,"history":15,"react":241,"react-router":202}],244:[function(require,module,exports){
+},{"./components/Base.jsx":244,"./components/News.jsx":248,"./components/Photos.jsx":249,"history":15,"react":241,"react-router":202}],244:[function(require,module,exports){
 /**
  * @description
  * It's kind the container, main file/code; basically anything you want to
@@ -25582,25 +25582,111 @@ module.exports = Base;
 
 },{"react":241,"react-router":202}],245:[function(require,module,exports){
 var React = require('react'),
-    News = React.createClass({
-    displayName: 'News',
+    ListItem = require('./ListItem.jsx'),
+    List = React.createClass({
+    displayName: 'List',
+
+    render: function () {
+
+        let createItem = function (item, index) {
+            return React.createElement(ListItem, {
+                title: item.title,
+                subtitle: item.subtitle,
+                thumbnail: item.thumbnail,
+                key: index
+            });
+        };
+
+        return React.createElement(
+            'ul',
+            null,
+            this.props.items.map(createItem)
+        );
+    }
+});
+
+module.exports = List;
+
+},{"./ListItem.jsx":246,"react":241}],246:[function(require,module,exports){
+var React = require('react'),
+    ListItem = React.createClass({
+    displayName: 'ListItem',
 
     render: function () {
         return React.createElement(
-            'div',
+            'li',
             null,
             React.createElement(
-                'h1',
+                'article',
                 null,
-                'News'
+                React.createElement(
+                    'header',
+                    null,
+                    React.createElement(
+                        'h3',
+                        null,
+                        this.props.title
+                    ),
+                    React.createElement(
+                        'h4',
+                        null,
+                        this.props.subtitle
+                    )
+                ),
+                React.createElement(
+                    'footer',
+                    null,
+                    React.createElement(
+                        'figure',
+                        null,
+                        React.createElement('img', {
+                            srcSet: this.props.thumbnail,
+                            alt: this.props.title })
+                    )
+                )
             )
         );
     }
 });
 
+module.exports = ListItem;
+
+},{"react":241}],247:[function(require,module,exports){
+var React = require('react'),
+    List = require('./List.jsx'),
+    ListManager = React.createClass({
+    displayName: 'ListManager',
+
+    getInitialState: function () {
+        return {
+            items: [{
+                title: "First New",
+                subtitle: "First Subtitle",
+                thumbnail: "http://www.dummyimage.com/100x100"
+            }]
+        };
+    },
+    render: function () {
+        return React.createElement(List, { items: this.state.items });
+    }
+});
+
+module.exports = ListManager;
+
+},{"./List.jsx":245,"react":241}],248:[function(require,module,exports){
+var React = require('react'),
+    ListManager = require('./ListManager.jsx'),
+    News = React.createClass({
+    displayName: 'News',
+
+    render: function () {
+        return React.createElement(ListManager, null);
+    }
+});
+
 module.exports = News;
 
-},{"react":241}],246:[function(require,module,exports){
+},{"./ListManager.jsx":247,"react":241}],249:[function(require,module,exports){
 var React = require('react'),
     Photos = React.createClass({
     displayName: 'Photos',
@@ -25620,7 +25706,7 @@ var React = require('react'),
 
 module.exports = Photos;
 
-},{"react":241}],247:[function(require,module,exports){
+},{"react":241}],250:[function(require,module,exports){
 var React = require('react'),
     ReactDOM = require('react-dom'),
     Routes = require('./Routes.jsx');
@@ -25628,4 +25714,4 @@ var React = require('react'),
 // render into screen
 ReactDOM.render(Routes, document.getElementById('l-container'));
 
-},{"./Routes.jsx":243,"react":241,"react-dom":25}]},{},[247]);
+},{"./Routes.jsx":243,"react":241,"react-dom":25}]},{},[250]);

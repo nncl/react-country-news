@@ -1,10 +1,9 @@
 var React = require('react')
+    , ListManager = require('./ListManager.jsx')
     , News = React.createClass({
     render: function () {
         return (
-            <div>
-                <h1>News</h1>
-            </div>
+            <ListManager />
         )
     }
 });
