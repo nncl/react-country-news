@@ -5,11 +5,26 @@
  */
 
 var React = require('react')
+    , Link = require('react-router').Link
     , Base = React.createClass({
     render: function () {
         return (
             <section>
-                <header><h1>Header</h1></header>
+                <nav>
+                    <ul>
+                        <li>
+                            <Link
+                                activeClassName="m-link--active"
+                                to="/page1">Page 1</Link>
+                        </li>
+                        <li>
+                            <Link
+                                activeClassName="m-link--active"
+                                to="/page2">Page 2</Link>
+                        </li>
+                    </ul>
+                </nav>
+
                 {this.props.children}
                 <footer><h1>Footer</h1></footer>
             </section>

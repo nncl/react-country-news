@@ -25512,6 +25512,7 @@ module.exports = Routes;
  */
 
 var React = require('react'),
+    Link = require('react-router').Link,
     Base = React.createClass({
     displayName: 'Base',
 
@@ -25520,12 +25521,33 @@ var React = require('react'),
             'section',
             null,
             React.createElement(
-                'header',
+                'nav',
                 null,
                 React.createElement(
-                    'h1',
+                    'ul',
                     null,
-                    'Header'
+                    React.createElement(
+                        'li',
+                        null,
+                        React.createElement(
+                            Link,
+                            {
+                                activeClassName: 'm-link--active',
+                                to: '/page1' },
+                            'Page 1'
+                        )
+                    ),
+                    React.createElement(
+                        'li',
+                        null,
+                        React.createElement(
+                            Link,
+                            {
+                                activeClassName: 'm-link--active',
+                                to: '/page2' },
+                            'Page 2'
+                        )
+                    )
                 )
             ),
             this.props.children,
@@ -25544,7 +25566,7 @@ var React = require('react'),
 
 module.exports = Base;
 
-},{"react":241}],245:[function(require,module,exports){
+},{"react":241,"react-router":202}],245:[function(require,module,exports){
 var React = require('react'),
     Page1 = React.createClass({
     displayName: 'Page1',
